@@ -9,9 +9,10 @@
 </head>
 <body>
     <div class="m-auto w-max h-[600px]">
-        <div class="flex flex-col gap-3 overflow-y-auto w-[130%] h-[99%]">
+        <div class="flex flex-col gap-3 overflow-y-auto w-[130%] h-[99%] mt-5">
+            @foreach ($tasks as $eachtask )
             <div class="flex flex-row items-center justify-between w-[100%] max-w-[250px]">
-                <p class="break-words w-[100%]">fuck yes!!!!!!</p>
+                <p class="break-words w-[100%]">{{$eachtask['title']}}</p>
                 <div class="flex items-center">
                     <button>
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 text-blue-700 " viewBox="0 0 20 20" fill="currentColor">
@@ -25,13 +26,14 @@
                     </button>
                 </div>
             </div>
+            @endforeach
 
         </div>
-        <form action="POST" class="mt-4">
+        <form method="POST" action="/addtask" class="mt-4">
             @csrf
             <div class="flex flex-row justify-center ">
-                <input type="text" placeholder="Add Task">
-                <button type="submit" class="flex flex-row items-center">
+                <input type="text" placeholder="Add Task" name="title">
+                <button class="flex flex-row items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                         <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd"></path>
                     </svg>

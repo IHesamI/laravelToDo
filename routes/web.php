@@ -14,5 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::post('/delete/{id}', [tasks::class,'deleteTask']);
+Route::post('/edit/{id}', [tasks::class,'edittask']);
 Route::get('/', [tasks::class,'index']);
 Route::post('/addtask', [tasks::class,'addtask']);
